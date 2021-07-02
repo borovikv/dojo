@@ -12,11 +12,11 @@ def is_polindrom(s, start, stop):
     return 1
 
 
-def count_palindromes_n2(a):
+def count_palindromes_n2(s):
     index = []
     count, local_count = 0, 0
-    for i, s in enumerate(list(a)):
-        if i > 0 and s == a[i - 1]:
+    for i, s in enumerate(list(s)):
+        if i > 0 and s == s[i - 1]:
             index.append(i)
             local_count += 1
         for j in range(len(index)):
@@ -25,7 +25,7 @@ def count_palindromes_n2(a):
                 local_count -= int(ix == 0)
                 index[j] -= 1
                 continue
-            if s == a[ix - 1]:
+            if s == s[ix - 1]:
                 index[j] -= 1
             else:
                 index[j] = -1
