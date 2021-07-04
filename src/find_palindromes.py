@@ -6,31 +6,19 @@ def count_palindromes(s):
 
 def is_polindrom(s, start, stop):
     l = stop - start
-    for i in range(l//2):
-        if s[start + i] != s[stop-i-1]:
+    for i in range(l // 2):
+        if s[start + i] != s[stop - i - 1]:
             return 0
     return 1
 
 
 def count_palindromes_n2(s):
     index = []
-    count, local_count = 0, 0
-    for i, s in enumerate(list(s)):
-        if i > 0 and s == s[i - 1]:
+    count, multi = 0, 0
+    for i, symbol in enumerate(list(s)):
+        if i > 0 and symbol == s[i - 1]:
             index.append(i)
-            local_count += 1
-        for j in range(len(index)):
-            ix = index[j]
-            if ix <= 0:
-                local_count -= int(ix == 0)
-                index[j] -= 1
-                continue
-            if s == s[ix - 1]:
-                index[j] -= 1
-            else:
-                index[j] = -1
-                local_count -= 1
+        index = [j - 1 for j in index if j > 0 and s[j - 1] == symbol]
         index.append(i)
-        local_count += 1
-        count += local_count
+        count += len(index)
     return count
