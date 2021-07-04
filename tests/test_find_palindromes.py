@@ -11,7 +11,7 @@ import find_palindromes as subject
         (subject.count_palindromes, 'pop' * 500, 376250, 20),
 
         (subject.count_palindromes_n2, 'popop', 9, 0.01),
-        (subject.count_palindromes_n2, 'pop' * 500, 376250, 1),
+        (subject.count_palindromes_n2, 'pop' * 500, 376250, 20),
     ],
     ids=['popop', 'performance', 'popop_n2', 'performance_n2']
 )
